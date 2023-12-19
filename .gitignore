@@ -1,4 +1,4 @@
 dashboard_env
 __pycache__
 .envs
-
+db.sqlite3
