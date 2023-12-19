@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import BaseUserManager,AbstractBaseUser,AbstractUser
 from utils.model_status import Gender
 from django.db.models import Q
+import datetime
 
 
 
@@ -55,7 +56,7 @@ class User(AbstractUser):
     mobile_number = models.CharField(max_length=15, blank=True, null=True)
     address = models.CharField(max_length=50)  
     name =  models.CharField(max_length=255)  
-    date_of_birth = models.DateTimeField()
+    date_of_birth = models.DateTimeField(blank=True, null=True)
 
     def save(self,*args,**kwargs):
         if(len(self.first_name)>0 and len(self.middle_name)>0 and len(self.last_name)>0):
@@ -85,5 +86,19 @@ class TimeStampAbstractModel(models.Model):
     class Meta:
         abstract = True
     
+
+class Attendance(TimeStampAbstractModel):
+    from_time = models.TimeField()
+    to_time = models.TimeField()
+    duration = models.FloatField()
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="user_attendance")
+    
+    def save(self, *args, **kwargs):
+        if self.from_time and self.to_time:
+            time_difference = datetime.datetime.combine(datetime.date.today(), self.to_time) - datetime.datetime.combine(datetime.date.today(), self.from_time)
+            time_difference_seconds = time_difference.total_seconds()
+            self.duration = datetime.timedelta(seconds=time_difference_seconds)
+
+        super(Attendance, self).save(*args, **kwargs)
     
 
