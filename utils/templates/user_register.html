@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    
+    <style>
+        .error {
+            color: red;
+        }
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        td {
+            padding-right: 40px;
+            padding-bottom: 25px;
+        }
+        .selectcol {
+            height: 35px;
+            background-color: lightgray;
+            border: none;
+            border-radius: 3px;
+            color: grey;
+            width: 378px;
+        }
+
+        input {
+            height: 30px;
+            border: none;
+            background-color: lightgray;
+            border-radius: 3px;
+        }
+        
+        .twocol {
+            width: 375px;
+        }
+
+        .button {
+            background-color: burlywood;
+            border: none;
+        }
+        .button:hover {
+            cursor: pointer;
+            background-color: lightgray;
+            color: gray;
+        }
+        table {
+            margin-left: 500px;
+        }
+        h2 {
+            text-align: center;
+            color: purple;
+        }
+        span {
+            color: gray;
+            font-size: small;
+        }
+        .ml, .fl {
+            vertical-align: super;
+        }
+        .check {
+            vertical-align: sub;
+        }
+        h3 {
+            text-align: center;
+            color: cyan;
+        }
+
+        .recloc {
+            text-decoration: none;
+            color: black;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h2>Student Registration Form</h2>
+    <form action="" method="post">
+        {% csrf_token %}
+        <table>
+            <tr>
+                <td><label for="first_name">Name</label></td>
+                <td>
+                    <input id="fname" name="first_name" type="text" required><br><span>First Name</span><br>
+                    <span class="error"></span><br>
+                </td>
+                <td>
+                    <input id="fname" name="middle_name" type="text"><br><span>Middle Name</span><br>
+                    <span class="error"></span><br>
+                </td>
+                <td>
+                    <input id="fname" type="text" name="last_name" id="lname" required><br><span>Last Name</span><br>
+                    <span class="error"></span><br>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="email">Email</label></td>
+                <td colspan="2">
+                    <input class="twocol" name="email" type="email" id="email" required>
+                </td>
+                <td><span class="error"></span></td>
+            </tr>
+            <tr>
+                <td><label for="password1">Password</label></td>
+                <td colspan="2"><input class="twocol" type="password" name="password1" required></td>
+            </tr>
+            <tr>
+                <td><label for="password2">Confirm Password</label></td>
+                <td colspan="2"><input class="twocol" type="password" name="password2" required></td>
+            </tr>
+            <tr>
+                <td><label for="date_of_birth">Date Of Birth</label></td>
+                <td><input type="date" name="date_of_birth" required></td>
+            </tr>
+            <tr>
+                <td><label for="mobile_number">Phone</label></td>
+                <td colspan="2">
+                    <input class="twocol" type="text" name="mobile_number" id="phone">
+                </td>
+                <td><span class="error"></span></td>
+            </tr>
+            <tr>
+                <td>Gender</td>
+                <td colspan="2">
+                    <label for="male" class="ml">Male</label>
+                    <input type="radio" name="gender" id="male" value="1">
+                    <label for="female" class="fl">Female</label>
+                    <input type="radio" name="gender" id="female" value="2">
+                    <label for="others" class="fl">Others</label>
+                    <input type="radio" name="gender" id="others" value="3">
+                    <span class="error"></span><br>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="address">Address</label></td>
+                <td colspan="2">
+                    <input class="twocol" type="text" name="address" id="address" required>
+                </td>
+                <td><span class="error"></span></td>
+            </tr>
+            <tr>
+                <td><br><input class="button" type="submit" value="Register"></td>
+            </tr>
+    </table>
+    </form>
+    </div>
+    
+</body>
+</html>

@@ -13,17 +13,12 @@ class RegisterStudentAccountView(View):
             user = form.save(commit=False)
             user.save()
             # return redirect()
-        return render(request,"student_register.html",context={"form":form})
+        return render(request,"user_register.html",context={"form":form})
         
     def get(self,request,*args,**kwargs):
-        form = StudentRegisterForm()
-        context = {
-            "form":form
-        }
-        # return render(request,"student_register.html",context=context)
-
-
-
+        return render(request,"user_register.html")
+        
+        
 class LoginUser(View):
     def get(self,request,*args,**kwargs):
         return render(request,"user_login.html")
