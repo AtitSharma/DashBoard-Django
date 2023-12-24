@@ -46,3 +46,8 @@ class StudentRegisterForm(forms.Form):
         if commit:
             user.save()
         return user
+    
+
+class LoginUserForm(forms.Form):
+    email = forms.EmailField()
+    password = forms.EmailField()
