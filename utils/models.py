@@ -56,7 +56,7 @@ class User(AbstractUser):
     mobile_number = models.CharField(max_length=15, blank=True, null=True)
     address = models.CharField(max_length=50)  
     name =  models.CharField(max_length=255)  
-    date_of_birth = models.DateTimeField(blank=True, null=True)
+    date_of_birth = models.DateField(blank=True, null=True)
 
     def save(self,*args,**kwargs):
         if(len(self.first_name)>0 and len(self.middle_name)>0 and len(self.last_name)>0):

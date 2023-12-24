@@ -1,9 +1,10 @@
 dashboard_env
 __pycache__
-
+.DS_Store
 
 
 
 
 .envs
+db.sqlite3
 db.sqlite3
