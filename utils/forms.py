@@ -2,7 +2,7 @@ from django import forms
 from utils.models import User
 from utils.model_status import Gender
 
-class StudentRegisterForm(forms.Form):
+class UserRegistrationForm(forms.Form):
     email = forms.EmailField()
     password1 = forms.CharField(max_length=255,min_length=8,widget=forms.PasswordInput)
     password2 = forms.CharField(max_length=255,min_length=8,widget=forms.PasswordInput)
@@ -50,4 +50,4 @@ class StudentRegisterForm(forms.Form):
 
 class LoginUserForm(forms.Form):
     email = forms.EmailField()
-    password = forms.EmailField()
+    password = forms.CharField()

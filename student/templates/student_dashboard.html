@@ -1,0 +1,126 @@
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{% static 'icon/font/bootstrap-icons.css' %}">
+    <link rel="stylesheet" href="{% static 'icon/font/bootstrap-icons.min.css' %}">
+    <link rel="stylesheet" href="{% static 'nav/nav.css' %}">
+
+</head>
+<body>
+    <!-- nav starts here  -->
+    <div class="slidebar">
+        <!-- logo here  -->
+        <div class="logo">
+            <img src="mgl.png" alt="">
+            <span class="loim">Dashboard</span>
+        </div>
+        <!-- logo  ends  -->
+        <ul class="menu">
+            <li class="active">
+                <a href="#">
+                    <i class="bi bi-house-door-fill"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+        
+            <li>
+                <a href="#">
+                    <i class="bi bi-person-workspace"></i>
+                     <span>Teachers</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="bi bi-clock-fill"></i>
+                    <span>Timetable</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="bi bi-journal-text"></i>
+                    <span>Lecture Note</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="bi bi-check-circle-fill"></i>
+                    <span>Succeeded</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="bi bi-flag-fill"></i>
+                    <span>Working on</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="bi bi-journal-check"></i>
+                    <span>Attendance</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="bi bi-gear-fill"></i>
+                    <span>Manage</span>
+                </a>
+            </li>
+            <li class="logout">
+                <a href="#">
+                    <i class="bi bi-box-arrow-right"></i>
+                    <span>LogOut</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!-- nav ends here  -->
+    <!-- main starts -->
+    <div class="main-content">
+        <div class="header-wrapper">
+            <div class="header-title">
+                {% if student_user %}
+                <h3>Student</h3>
+                {% endif %}
+                <h2>Dashboard</h2>
+            </div>
+            <div class="user-info">
+                <div class="search-box">
+                <i class="bi bi-search"></i>
+                <input type="text" placeholder="Search" >
+             </div>
+                <img src="" alt="">
+            </div>
+        </div>
+        <div class="News-container">
+         <div class="con1">
+            <h3 class="main-title">Daily News</h3>
+            <div class="News-wrapper">
+                <div class="Todays-News">
+                    <div class="News">
+                        <div class="News-Header">
+                            <span class="title">
+                            Atit's Birthday
+                            </span>
+                            <span class="Date">
+                                16th Sept, 2023
+                            </span>
+                        </div>
+                   </div>
+                </div>  
+            </div>
+         </div>
+        </div>
+
+        <div class="tabular-content">
+            <h3 class="table-name"> </h3>
+        </div>
+
+    </div>
+</body>
+</html>
+{% endblock content %}
