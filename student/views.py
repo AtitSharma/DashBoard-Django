@@ -9,3 +9,5 @@ class StudentDashBoardView(View):
         student_content = StudentProfile.objects.all()
         student_user = User.objects.filter(is_student=True)
         return render(request, "student_dashboard.html", {"student_content": student_content, "student_user": student_user})
+
+
